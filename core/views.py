@@ -2,7 +2,6 @@ from django.shortcuts import render
 from imovel.models import Imovel, Image
 # Create your views here.
 def index(request):
-	image = Imovel.objects.all()
 	tres = Imovel.objects.filter(book_type='1')[:3]
 	dois = Imovel.objects.filter(book_type='1').order_by('-id')[0]
 	dois_ = Imovel.objects.filter(book_type='1').order_by('-id')[1]
@@ -10,7 +9,6 @@ def index(request):
 		'tres': tres,
 		'dois': dois,
 		'dois_':dois_,
-		'image':image,
 	}
 	return render(request, 'index.html', context)
 
