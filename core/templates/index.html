@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tadeu Imóveis</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'assets/css/landing-page.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+<!--     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+ -->    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Vendas</a>
+                    </li>
+                    <li>
+                        <a href="#">Aluguel</a>
+                    </li>
+                    <li>
+                        <a href="#">Corretores</a>
+                    </li>
+                    <li>
+                        <a href="#">Contato</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header" style="background: url({% static 'intro-bg.jpg' %}) no-repeat center center;" >
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Landing Page</h1>
+                        <h3>A Template by Start Bootstrap</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    
+    <div class="container" >
+        <div class="row" >
+        <a name="venda"></a>
+            <div id="venda" class="col-md-8 col-md-offset-2" >
+            <h1 id="chamada">IMÓVEIS RECENTES À VENDA</h1>
+               {% for item in tres %} 
+                <div class="col-sm-6 col-md-4">                    
+                    <div class="thumbnail">                        
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                          <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                              <img src="http://placehold.it/300x400" alt="Chania">
+                            </div>
+
+                            <div class="item">
+                              <img src="http://placehold.it/300x400" alt="Chania">
+                            </div>
+
+                          </div>
+                        </div>
+
+                        <div class="caption">
+                            <h4>{{ item.name|capfirst }}</h4>
+                            <p>{{item.description|truncatechars:50}}</p>
+                            <p><a href="#" class="btn btn-primary" role="button">LEIA MAIS </a> </p>
+                        </div>                       
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+                
+        
+        </div>
+    </div>
+    
+
+
+<h1 id="chamada">IMÓVEIS RECENTES PARA ALUGUEL</h1>
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer-b">
+                    <div class="clearfix"></div>
+                        <h1>{{ dois.name }}</h1>
+                        <p>{{ dois.description|truncatechars:70 }}</p>
+                        <p><a href="#" class="btn btn-primary" role="button">LEIA MAIS </a> </p>
+                    </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="http://placehold.it/300x300" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+    <div class="content-section-c"  >
+
+        <div class="container">
+
+            <div class="row" >
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h1>{{ dois_.name }}</h1>
+                        <p >{{ dois_.description|truncatechars:100 }}</p>
+                    </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="{{ image.image.url }}" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+    <h1 id="h1contato" >Contato</h1>
+    <a name=contact></a>
+    <div class="container" >
+        <div class="row" >
+            <div class="col-sm-6" >
+                <h2>Endereço</h2>
+                <h5>
+                    Av. Bernardino de Campos,</br> 98 São Paulo, SP 1255-678
+                </h5>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51302.93414147517!2d-39.22100393833336!3d-17.115967220142714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7344fcf910a856b%3A0x60d7e073754e63f3!2sCumuruxatiba%2C+Prado+-+BA!5e0!3m2!1spt-BR!2sbr!4v1476449346046" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div class="col-sm-6" >
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="id_name" class="col-md-3 control-label">Nome</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="id_name" placeholder="Nome" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_email" class="col-md-3 control-label">E-mail</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="id_email" placeholder="E-mail" />
+                            </div>
+                        </div>
+                        <div class="form-group has-error">
+                            <label for="id_message" class="col-md-3 control-label">Mensagem</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" rows="3" id="id_message"></textarea>
+                                <span class="help-block">Este campo é obrigatório</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-9 col-md-offset-3">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>
