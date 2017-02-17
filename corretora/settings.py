@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'core',
     'imovel',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+THUMBNAIL_ALIASES = {
+    '':{
+        'image_venda':{'size': (300, 400), 'crop': True},
+        'image_aluguel':{'size': (300, 300), 'crop': True},
+
+
+    },
+}

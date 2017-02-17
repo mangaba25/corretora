@@ -1,17 +1,14 @@
 from django.contrib import admin
 
-from .models import Imovel, Image
+from .models import Imovel
 
 class ImovelAdmin(admin.ModelAdmin):
-    list_display = ['name', 'book_type', 'created','modified']
-    search_fields = ['name','book_type']
+    list_display = ['lugar', 'tipo_imovel', 'created','modified']
+    search_fields = ['lugar','tipo_imovel']
     list_filter = ['created', 'modified']
 
-class ImageAdmin(admin.ModelAdmin):
-	list_display = ['category']
 
 admin.site.register(Imovel, ImovelAdmin)
-admin.site.register(Image, ImageAdmin)
 
 
 

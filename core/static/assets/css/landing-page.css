@@ -206,3 +206,19 @@ p.copyright {
 h4, p{
     color: #ccc;
 }
+
+
+.row {
+    opacity: 0;
+/*    transform: translate3d(100px,-30px,50px);
+*/    transform: translate3d(0px,50px,0px);
+    transition: 2s;
+}
+.anime-start{
+    opacity: 1;
+    transform: translate3d(0,0,0);
+}
+
+#paginacao{
+    text-align: center;
+}

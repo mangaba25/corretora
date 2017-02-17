@@ -3,43 +3,44 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 
+
 from .models import Imovel
 
-class ListarListView(generic.ListView):
+class VendaListView(generic.ListView):
     model = Imovel
-    template_name = 'imovel/list.html'
+    template_name = 'venda.html'
     context_object_name = 'object_list'
-    paginate_by = 8
+    paginate_by = 6
 
     def get_context_data(self, **kwargs):
-        context = super(ListarListView, self).get_context_data(**kwargs)
-        context['tres'] = Imovel.objects.all()[:3]
+        context = super(VendaListView, self).get_context_data(**kwargs)
+        context['venda'] = Imovel.objects.filter(tipo_imovel='VENDA')
         return context
 
-listar = ListarListView.as_view()
+venda = VendaListView.as_view()
 
-class CategoryListView(generic.ListView):
-    template_name = 'ondecomer/descricao.html'
+class AluguelListView(generic.ListView):
+    model = Imovel
+    template_name = 'aluguel.html'
     context_object_name = 'object_list'
-    paginate_by = 8
-
-    def get_queryset(self):
-        return OndeComer.objects.filter(category__slug=self.kwargs['slug'])
+    paginate_by = 6
 
     def get_context_data(self, **kwargs):
-        context = super(CategoryListView, self).get_context_data(**kwargs)
-        context['current_category'] = get_object_or_404(CategoryOndeComer, slug=self.kwargs['slug'])
-        context['capa'] = ImageOndecomer.objects.all()
+        context = super(AluguelListView, self).get_context_data(**kwargs)
+        context['aluguel'] = Imovel.objects.filter(tipo_imovel='ALUGUEL')
         return context
 
-category = CategoryListView.as_view()
+aluguel = AluguelListView.as_view()
 
-def imovel(request, name):
-    ondecomer = Imovel.objects.get(name=name)
+
+
+
+def imovel(request, slug):
+    imovel = Imovel.objects.get(slug=slug)
     context = {
-        'ondecomer': ondecomer
+        'imovel': imovel,
     }
-    return render(request, 'te.html', context)
+    return render(request, 'slide.html', context)
 
 
 

@@ -1,12 +1,13 @@
 from django.shortcuts import render
-from imovel.models import Imovel, Image
-# Create your views here.
+from imovel.models import Imovel
 def index(request):
-	tres = Imovel.objects.filter(book_type='1')[:3]
-	dois = Imovel.objects.filter(book_type='1').order_by('-id')[0]
-	dois_ = Imovel.objects.filter(book_type='1').order_by('-id')[1]
+	tres = Imovel.objects.filter(tipo_imovel='VENDA')[:3]
+	um = Imovel.objects.first()
+	dois = Imovel.objects.filter(tipo_imovel='ALUGUEL').order_by('-id')[0]
+	dois_ = Imovel.objects.filter(tipo_imovel='ALUGUEL').order_by('-id')[1]
 	context = {
 		'tres': tres,
+		'um':um,
 		'dois': dois,
 		'dois_':dois_,
 	}
@@ -15,11 +16,5 @@ def index(request):
 
 def aluguel(request):
 	return render(request, 'aluguel.html')
-
-def venda(request):
-	return render(request, 'venda.html')
-
-def slide(request):
-	return render(request, 'slide.html')
 
 

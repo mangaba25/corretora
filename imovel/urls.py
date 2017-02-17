@@ -5,7 +5,8 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.listar, name='listar'),
-    url(r'^(?P<slug>[\w_-]+)/$', views.category, name='category'),
-    url(r'^(?P<name>[\w_-]+)$', views.imovel, name='imovel'),
+
+    url(r'^venda/$', views.venda, name='venda'),
+    url(r'^aluguel/$', views.aluguel, name='aluguel'),
+    url(r'^(?P<slug>[\w_-]+)$', views.imovel, name='imovel'),
 ]
