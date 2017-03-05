@@ -3,14 +3,14 @@
 {% load thumbnail %}
 
     {% block content %}
-        <div class="container" >
+        <div id="imovel" class="container" >
             <div class="row" >
                 <div id="venda" class="col-md-8 col-md-offset-2">
                     <h1 id="chamada">IMÓVEIS PARA ALUGAR</h1>
                     {% for item in aluguel %}
                         <div class="col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img src="{{item.image_1.url}}" alt="...">
+                                <img src="{{item.image_1|thumbnail_url:'image_lista'}}" alt="...">
                                 <div class="caption">
 
                                     {% if item.lugar %}
@@ -42,8 +42,7 @@
                 </div>
             </div>
         </div>
-        <div id="paginacao" class="row" >
-            <div class="col-xs-12" >
+        <div id="paginacao" class="col-xs-12" >
                 <nav>
                     <ul class="pagination" >
                         {% for page in paginator.page_range %}
@@ -52,6 +51,5 @@
                     </ul>
                 </nav>
             </div>
-        </div>
     {% endblock %}
 

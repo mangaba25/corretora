@@ -7,28 +7,24 @@ from django.views import generic
 from .models import Imovel
 
 class VendaListView(generic.ListView):
-    model = Imovel
     template_name = 'venda.html'
-    context_object_name = 'object_list'
-    paginate_by = 6
+    context_object_name = 'venda'
+    paginate_by = 3
 
-    def get_context_data(self, **kwargs):
-        context = super(VendaListView, self).get_context_data(**kwargs)
-        context['venda'] = Imovel.objects.filter(tipo_imovel='VENDA')
-        return context
+    def get_queryset(self):
+        return Imovel.objects.filter(tipo_imovel='VENDA')
+
 
 venda = VendaListView.as_view()
 
 class AluguelListView(generic.ListView):
-    model = Imovel
     template_name = 'aluguel.html'
-    context_object_name = 'object_list'
+    context_object_name = 'aluguel'
     paginate_by = 6
 
-    def get_context_data(self, **kwargs):
-        context = super(AluguelListView, self).get_context_data(**kwargs)
-        context['aluguel'] = Imovel.objects.filter(tipo_imovel='ALUGUEL')
-        return context
+    def get_queryset(self):
+        return Imovel.objects.filter(tipo_imovel='ALUGUEL')
+
 
 aluguel = AluguelListView.as_view()
 

@@ -15,7 +15,7 @@ debounce = function(func, wait, immediate){
 };
 
 ( function(){
-	var $target = $('.row'),
+	var $target = $('.venda'),
 		animationClass = 'anime-start',
 		offset = $(window).height()*3/3;
 
@@ -39,3 +39,6 @@ $(document).scroll(function(){
 
 }());
 
+$('#form').each (function(){
+  this.reset();
+});

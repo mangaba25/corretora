@@ -23,8 +23,9 @@ from core import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-    url(r'^imovel/', include('imovel.urls', namespace='imovel')),
-    url(r'^imovel/', include('imovel.urls', namespace='imovel')),
+    url(r'^contato/$', views.contato, name='contato'),
+    url(r'^imovel-', include('imovel.urls', namespace='imovel')),
+    url(r'^imovel-', include('imovel.urls', namespace='imovel')),
 
 ]
 if settings.DEBUG:

@@ -40,10 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #libs
+    'widget_tweaks',
+
 
     'core',
     'imovel',
     'easy_thumbnails',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -110,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'UTC'
 
@@ -134,10 +138,21 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'fjanuarioazevedo@gmail.com'
+EMAIL_HOST_PASSWORD = 'f5u5v5p5'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'fjanuarioazevedo@gmail.com'
+
+
 THUMBNAIL_ALIASES = {
     '':{
+        'image_capa':{'size': (1920, 1080), 'crop': True},
         'image_venda':{'size': (300, 400), 'crop': True},
+        'image_lista':{'size': (300, 400), 'crop': True},
         'image_aluguel':{'size': (300, 300), 'crop': True},
+        'image_corretor':{'size': (225, 225), 'crop': True},
 
 
     },
