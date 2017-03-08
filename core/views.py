@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.core.mail import send_mail
 from django.conf import settings
 from imovel.models import Imovel
+from .models import Capa
 from .forms import ContactForm
 
 def index(request):
@@ -11,11 +12,13 @@ def index(request):
 	um = Imovel.objects.first()
 	dois = Imovel.objects.filter(tipo_imovel='ALUGUEL').order_by('-id')[0]
 	dois_ = Imovel.objects.filter(tipo_imovel='ALUGUEL').order_by('-id')[1]
+	capa = Capa.objects.first()
 	context = {
 		'tres': tres,
 		'um':um,
 		'dois': dois,
 		'dois_':dois_,
+		'capa': capa,
 	}
 	return render(request, 'index.html', context)
 

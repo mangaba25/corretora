@@ -39,11 +39,11 @@
                 <div class="row">
                     <div class="col-xs-12 ">
                         <div class="col-xs-12"  ">
-                            <h4><strong>{{imovel.lugar}}</strong> </h4>
-                            <p>{{ imovel.description }}</p>
+                            <h4 id="h4-slide" ><strong>{{imovel.lugar|capfirst}}</strong> </h4>
+                            <p id="p-slide" >{{ imovel.description|capfirst }}</p>
                         </div>
                         <div class="col-xs-12" >
-                            <p style="margin-top: 50px;    " ><a href="{% url 'index' %}#contact" class="btn btn-info" role="button">ENTRE EM CONTATO. </a> </p>
+                            <p id="botao-contato" ><a href="{% url 'contato' %}" class="btn btn-info" role="button">ENTRE EM CONTATO</a> </p>
                         </div>         
                     </div>
                 </div>

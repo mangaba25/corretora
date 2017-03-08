@@ -1,3 +1,13 @@
+
+
 from django.contrib import admin
 
-# Register your models here.
+from .models import Capa
+
+class CapaAdmin(admin.ModelAdmin):
+    list_display = ['created']
+
+
+admin.site.register(Capa, CapaAdmin)
+
+

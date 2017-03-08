@@ -19,6 +19,7 @@ h5,
 h6 {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
+
 }
 
 .topnav {
@@ -176,7 +177,7 @@ h6 {
 
 footer {
     padding: 20px 0;
-    background-color: #f8f8f8;
+    background-color: white;
 }
 
 p.copyright {
@@ -203,7 +204,7 @@ p.copyright {
     border: none;
 }
 
-h4, p{
+h4,h3,p{
     color: #ccc;
 }
 
@@ -253,19 +254,24 @@ h4, p{
     margin-top: 50px;
 }
 
-.team-member {
-  text-align: center;
-  margin-bottom: 50px;
+#aluguel{
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#9370DB;
 }
-.team-member img {
-  margin: 0 auto;
-  border: 7px solid #ccc;
+#contato{
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#9370DB;
 }
-.team-member h4 {
-  margin-top: 25px;
-  margin-bottom: 0;
-  text-transform: none;
+#botao-contato{
+     margin-top: 50px;
+     text-align: center;
 }
-.team-member p {
-  margin-top: 0;
+#h4-slide{
+    text-align: center;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 25px;
+    color: #808080;
+}
+#p-slide{
+    color: #808080;
 }
