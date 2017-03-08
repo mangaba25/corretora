@@ -1,4 +1,7 @@
+# coding=utf-8
+
 from django.shortcuts import render
+
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.core.mail import send_mail
