@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
+ {% load humanize %}
 {% load thumbnail %}
 
     {% block content %}
         <div id="imovel" class="container" >
             <div class="row" >
                 <div id="venda" class="col-md-8 col-md-offset-2">
+                {% if aluguel %}
                     <h1 id="chamada">IMÓVEIS PARA ALUGAR</h1>
                     {% for item in aluguel %}
                         <div class="col-sm-6 col-md-4">
@@ -18,7 +20,7 @@
                                     {% endif %}
 
                                     {% if item.preco %}
-                                        <h4>R${{item.preco}}</h4>
+                                        <h4>R${{item.preco|intcomma}}</h4>
                                     {% endif %}
 
                                     {% if item.dormitorio %}
@@ -40,6 +42,9 @@
                         </div>
                     {% endfor %}
                 </div>
+                {% else %}
+                <h1 class="aviso" >Ainda não possuimos imóveis a venda.</h1>
+                {% endif %}
             </div>
         </div>
         <div id="paginacao" class="col-xs-12" >

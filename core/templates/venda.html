@@ -7,6 +7,7 @@
         <div id="imovel" class="container" >
             <div class="row" >
                 <div id="venda" class="col-md-8 col-md-offset-2">
+                {% if venda %}
                     <h1 id="chamada">IMÓVEIS À VENDA</h1>
                     {% for item in venda %}
                         <div class="col-sm-6 col-md-4">
@@ -41,6 +42,10 @@
                         </div>
                     {% endfor %}
                 </div>
+                {% else %}
+                <h1 class="aviso" >Ainda não possuimos imóveis a venda.</h1>
+                {% endif %}
+
             </div>
         </div>
             <div id="paginacao" class="col-xs-12" >

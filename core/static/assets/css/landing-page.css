@@ -275,3 +275,12 @@ h4,h3,p{
 #p-slide{
     color: #808080;
 }
+.aviso{
+        text-align: center;
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 30px;
+    color: #808080;
+}
+.thumbnail{
+    min-height: 580px;
+}

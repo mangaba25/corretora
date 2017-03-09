@@ -11,16 +11,12 @@ from .models import Capa
 from .forms import ContactForm
 
 def index(request):
-	tres = Imovel.objects.filter(tipo_imovel='VENDA')[:3]
-	um = Imovel.objects.first()
-	dois = Imovel.objects.filter(tipo_imovel='ALUGUEL').order_by('-id')[0]
-	dois_ = Imovel.objects.filter(tipo_imovel='ALUGUEL').order_by('-id')[1]
+	recentes_a_venda = Imovel.objects.filter(tipo_imovel='VENDA')
+	recentes_para_aluguel = Imovel.objects.filter(tipo_imovel='ALUGUEL')
 	capa = Capa.objects.first()
 	context = {
-		'tres': tres,
-		'um':um,
-		'dois': dois,
-		'dois_':dois_,
+		'recentes_a_venda': recentes_a_venda,
+		'recentes_para_aluguel': recentes_para_aluguel,
 		'capa': capa,
 	}
 	return render(request, 'index.html', context)

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load thumbnail %}
+ {% load humanize %}
 {% block content %}
 
         <!-- Header -->
@@ -50,13 +51,14 @@
 
 
 
-    <div class="venda" >
     <div class="container" >
         <div class="row" >
         <a name="venda"></a>
             <div id="venda" class="col-md-8 col-md-offset-2" >
+            {% if recentes_a_venda %}
             <h1 id="chamada">IMÓVEIS RECENTES À VENDA</h1>
-               {% for item in tres %} 
+            {% endif %}
+               {% for item in recentes_a_venda|slice:":3" %} 
 
                 <div class="col-sm-6 col-md-4">                    
                     <div class="thumbnail">                        
@@ -81,61 +83,65 @@
                         </div>                       
                     </div>
                 </div>
+
                 {% endfor %}
                 </div>
                 
         
         </div>
     </div>
-    </div>
     
 
 <div class="venda" >
+    {% for item in recentes_para_aluguel|slice:":1" %}
+    <h1 id="chamada">IMÓVEIS RECENTES PARA ALUGUEL</h1>
 
-<h1 id="chamada">IMÓVEIS RECENTES PARA ALUGUEL</h1>
     <div class="content-section-b">
 
         <div class="container">
+
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer-b">
                     <div class="clearfix"></div>
-                        {% if dois.lugar %}
-                            <h3 id="aluguel">{{dois.lugar|capfirst}}</h3>
+                        {% if item.lugar %}
+                            <h3 id="aluguel">{{item.lugar|capfirst}}</h3>
                         {% endif %}
 
-                        {% if dois.preco %}
-                            <h3 id="aluguel">R${{dois.preco}}</h3>
+                        {% if item.preco %}
+                            <h3 id="aluguel">R${{item.preco|intcomma}}</h3>
                         {% endif %}
 
-                        {% if dois.dormitorio %}
-                            {% if dois.dormitorio == 1 %}
-                                <h4 id="aluguel">{{dois.dormitorio}} Dormitório</h4>
+                        {% if item.dormitorio %}
+                            {% if item.dormitorio == 1 %}
+                                <h4 id="aluguel">{{item.dormitorio}} Dormitório</h4>
                             {% endif %}
-                            {% if dois.dormitorio > 1 %}
-                                <h4 id="aluguel">{{dois.dormitorio}} Dormitórios</h4>
+                            {% if item.dormitorio > 1 %}
+                                <h4 id="aluguel">{{item.dormitorio}} Dormitórios</h4>
                             {% endif %}
                         {% endif %}
             
-                        {% if dois.description %}
-                            <p id="aluguel">{{dois.description|capfirst|truncatechars:140}}</p>
+                        {% if item.description %}
+                            <p id="aluguel">{{item.description|capfirst|truncatechars:140}}</p>
                          {% endif %}
 
                         <p><a href="{% url 'imovel:aluguel' %}" class="btn btn-primary" role="button">LEIA MAIS </a> </p>
                     </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
 
-                    <img class="img-responsive" src="{{dois.image_2|thumbnail_url:'image_aluguel'}}" alt="">
+                    <img class="img-responsive" src="{{item.image_1|thumbnail_url:'image_aluguel'}}" alt="">
                 </div>
             </div>
 
         </div>
-        <!-- /.container -->
+        
 
     </div>
+    {% endfor %}
     
 </div>
 <div class="venda" > 
+{% for item in recentes_para_aluguel|slice:"1:2" %}
     <div class="content-section-c"  >
 
         <div class="container">
@@ -144,39 +150,61 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    {% if dois_.lugar %}
-                            <h3 id="aluguel" >{{dois_.lugar|capfirst}}</h3>
+                    {% if item.lugar %}
+                            <h3 id="aluguel" >{{item.lugar|capfirst}}</h3>
                         {% endif %}
 
-                        {% if dois_.preco %}
-                            <h3 id="aluguel">R${{dois_.preco}}</h3>
+                        {% if item.preco %}
+                            <h3 id="aluguel">R${{item.preco|intcomma}}</h3>
                         {% endif %}
 
-                        {% if dois_.dormitorio %}
-                            {% if dois_.dormitorio == 1 %}
-                                <h4 id="aluguel">{{dois_.dormitorio}} Dormitório</h4>
+                        {% if item.dormitorio %}
+                            {% if item.dormitorio == 1 %}
+                                <h4 id="aluguel">{{item.dormitorio}} Dormitório</h4>
                             {% endif %}
-                            {% if dois_.dormitorio > 1 %}
-                                <h4 id="aluguel">{{dois_.dormitorio}} Dormitórios</h4>
+                            {% if item.dormitorio > 1 %}
+                                <h4 id="aluguel">{{item.dormitorio}} Dormitórios</h4>
                             {% endif %}
                         {% endif %}
             
-                        {% if dois_.description %}
-                            <p id="aluguel">{{dois_.description|capfirst|truncatechars:140}}</p>
+                        {% if item.description %}
+                            <p id="aluguel">{{item.description|capfirst|truncatechars:140}}</p>
                          {% endif %}
                         <p><a href="{% url 'imovel:aluguel' %}"  class="btn btn-primary" role="button">LEIA MAIS </a> </p>
                     </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="{{dois_.image_1|thumbnail_url:'image_aluguel'}}" alt="">
+                    <img class="img-responsive" src="{{item.image_1|thumbnail_url:'image_aluguel'}}" alt="">
                 </div>
             </div>
 
         </div>
-        <!-- /.container -->
 
     </div>
+    {% endfor %}
     
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
