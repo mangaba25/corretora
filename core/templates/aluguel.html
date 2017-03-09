@@ -2,6 +2,9 @@
 {% load static %}
  {% load humanize %}
 {% load thumbnail %}
+{% block title %}
+    Aluguel | {{ block.super }}
+{% endblock %}
 
     {% block content %}
         <div id="imovel" class="container" >

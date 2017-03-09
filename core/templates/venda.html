@@ -2,6 +2,9 @@
 {% load humanize %}
 {% load static %}
 {% load thumbnail %}
+{% block title %}
+    Venda | {{ block.super }}
+{% endblock %}
 
     {% block content %}
         <div id="imovel" class="container" >

@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load thumbnail %}
+{% block title %}
+    {{ imovel|capfirst }} | {{ block.super }}
+{% endblock %}
 {% block content %}
     <div id="container" class="container" >
         <div class="row">
