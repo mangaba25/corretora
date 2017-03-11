@@ -151,11 +151,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #Email
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'fjanuariodeazevedo@gmail.com'
-EMAIL_HOST_PASSWORD = 'f4u5v4p4'
+EMAIL_HOST_USER = 'fjanuarioazevedo'
+EMAIL_HOST_PASSWORD = 'f5u5v5p5'
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = 'fjanuarioazevedo@gmail.com'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
 
 
 THUMBNAIL_ALIASES = {
