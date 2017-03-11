@@ -155,6 +155,7 @@ EMAIL_HOST_USER = 'fjanuarioazevedo@gmail.com'
 EMAIL_HOST_PASSWORD = 'f5u5v5p5'
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = 'fjanuarioazevedo@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 THUMBNAIL_ALIASES = {
