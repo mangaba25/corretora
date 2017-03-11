@@ -50,14 +50,14 @@
 
 
 
-
+    {% if recentes_a_venda %}
     <div class="container" >
         <div class="row" >
         <a name="venda"></a>
             <div id="venda" class="col-md-8 col-md-offset-2" >
-            {% if recentes_a_venda %}
+            
             <h1 id="chamada">IMÓVEIS RECENTES À VENDA</h1>
-            {% endif %}
+            
                {% for item in recentes_a_venda|slice:":3" %} 
 
                 <div class="col-sm-6 col-md-4">                    
@@ -90,11 +90,12 @@
         
         </div>
     </div>
+    {% endif %}
     
 
-<div class="venda" >
+<div class="venda"  >
     {% for item in recentes_para_aluguel|slice:":1" %}
-    <h1 id="chamada">IMÓVEIS RECENTES PARA ALUGUEL</h1>
+    <h1 id="chamada"  >IMÓVEIS RECENTES PARA ALUGUEL</h1>
 
     <div class="content-section-b">
 

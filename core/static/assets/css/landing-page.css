@@ -163,6 +163,9 @@ h6 {
         text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
         font-size: 3em;
     }
+    #bs-example-navbar-collapse-1{
+        background-color: white;
+    }
 
     ul.banner-social-buttons > li {
         display: block;
@@ -190,7 +193,7 @@ p.copyright {
 #chamada{
     text-align: center;
     margin-bottom: 50px;
-    margin-top: 0px;
+    margin-top: 40px;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #A9A9A9;
@@ -238,6 +241,7 @@ h4,h3,p{
             margin-top: 10px;
             margin-top: 30px;
             border: none;
+
         }
 
 .navbar-brand img{
