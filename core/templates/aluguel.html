@@ -36,10 +36,10 @@
                                     {% endif %}
             
                                     {% if item.description %}
-                                        <p>{{item.description|capfirst|truncatechars:70}}</p>
+                                        <p>{{item.description|capfirst|truncatechars:50}}</p>
                                     {% endif %}
 
-                                    <p><a href="{{ item.get_absolute_url }}" class="btn btn-primary" role="button">LEIA MAIS </a> </p>
+                                    <p><a href="{{ item.get_absolute_url }}" class="btn btn-primary" role="button">DETALHES </a> </p>
                                 </div>
                             </div>
                         </div>
